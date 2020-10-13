@@ -6,8 +6,8 @@ resource "null_resource" "check_env_var" {
 
 
 resource "null_resource" "show_env_var_on_destroy" {
-  when = destroy
   provisioner "local-exec" {
+    when = destroy
     command = "echo Destroy value : $SENSITIVE_ENVIRONMENT_VARIABLE "
   }
 }
